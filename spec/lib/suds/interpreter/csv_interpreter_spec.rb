@@ -1,14 +1,14 @@
 require 'spec_helper'
 require 'interpreter/csv_interpreter'
 
-describe CSVInterpretor do
-  subject {CSVInterpretor.new("path")}
+describe CSVInterpreter do
+  subject {CSVInterpreter.new("path")}
 
   describe "#interpret_unit" do
     let(:headers) { %w{foo} }
     let(:row1) { {"foo" => "bar"} }
     let(:csvint) do
-      csvint = CSVInterpretor.new("path")
+      csvint = CSVInterpreter.new("path")
       csvint.headers = headers
       csvint.interpret_unit row1
       csvint
@@ -28,7 +28,7 @@ describe CSVInterpretor do
 
     context 'failure' do
       subject { csvint }
-      let(:csvint) { CSVInterpretor.new("path") }
+      let(:csvint) { CSVInterpreter.new("path") }
 
       it "raises an error if the headers aren't set" do
         expect{subject.interpret_unit %w{too many values}}.to raise_error(/Headers have not be set./)

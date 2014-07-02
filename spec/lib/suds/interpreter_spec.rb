@@ -1,8 +1,8 @@
 require 'spec_helper'
 require 'interpreter'
 
-describe Interpretor do
-  subject { Interpretor.new }
+describe Interpreter do
+  subject { Interpreter.new }
 
   context "interface" do
     it { should respond_to :data }

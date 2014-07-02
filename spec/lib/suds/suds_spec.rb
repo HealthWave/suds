@@ -8,12 +8,12 @@ describe Suds do
   subject { Suds }
 
   describe '#initialize' do
-    subject { Suds.new double("Interpretor") }
+    subject { Suds.new double("Interpreter") }
     it { should respond_to(:data) }
   end
 
   context 'plugins' do
-    let(:list) { subject.new double("Interpretor") }
+    let(:list) { subject.new double("Interpreter") }
 
     describe '#add_cleaner' do
       it "adds a cleaner" do
@@ -61,8 +61,8 @@ describe Suds do
     end
 
     let(:special_interpreter) do
-      interpreter = double("SpecialInterpretor")
-      allow(interpreter).to receive(:is_a?).with(Interpretor).and_return(true)
+      interpreter = double("SpecialInterpreter")
+      allow(interpreter).to receive(:is_a?).with(Interpreter).and_return(true)
       allow(interpreter).to receive(:interpret)
       allow(interpreter).to receive(:data).and_return(data)
       interpreter

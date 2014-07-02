@@ -1,5 +1,5 @@
 
-class Interpretor
+class Interpreter
   attr_accessor :headers, :data
 
   def initialize

@@ -1,17 +1,17 @@
 require 'csv'
 require 'suds/interpreter'
 
-class CSVInterpretor < Interpretor
+class CSVInterpreter < Interpreter
   attr_accessor :filepath
 
-  def initialize filepath
-    @filepath = filepath
+  def initialize raw_data
+    @raw_data = raw_data
     super()
   end
 
 
   def interpret
-    CSV.foreach(filepath, headers: true, header_converters: :symbol).each do |row|
+    CSV.parse(@raw_data, headers: true, header_converters: :symbol).each do |row|
       @headers = row.headers if @headers.nil? || @headers.empty?
       interpret_unit row
     end
