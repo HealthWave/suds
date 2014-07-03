@@ -69,13 +69,14 @@ describe Suds do
     end
 
     describe '#clean' do
+      let(:list) { Suds.new(special_interpreter) }
+      before do
+        list.add_cleaner(special_cleaner)
+      end
+
       it 'cleans the data' do
         expect( special_cleaner ).to receive(:clean)
-
-        list = Suds.new(special_interpreter)
-        list.add_cleaner(special_cleaner)
         list.clean
-
         expect( list.interpreter.data ).to_not eq( list.data )
       end
 
