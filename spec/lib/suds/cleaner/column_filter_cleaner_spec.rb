@@ -42,6 +42,14 @@ describe ColumnFilterCleaner do
       expect(result.first.keys).to_not include(:row1)
       expect(result.first.keys).to include(:row2)
     end
+
+    it 'accepts both strings and symbol arrays' do
+      cleaner = subject.new include_columns: "row2"
+      result = cleaner.clean data
+      expect(result.first.keys).to_not include(:row1)
+      expect(result.first.keys).to include(:row2)
+
+    end
   end
 
 
