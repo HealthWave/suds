@@ -1,9 +1,11 @@
 require 'suds/cleaner'
 
 class DowncaseCleaner < Cleaner
-  def initialize  exclude_columns:[], include_columns:[]
-    @exclude_columns = [exclude_columns].flatten
-    @include_columns = [include_columns].flatten
+  def initialize  options={}
+    options[:include_columns] ||=[]
+    options[:exclude_columns] ||=[]
+    @exclude_columns = [options[:exclude_columns]].flatten
+    @include_columns = [options[:include_columns]].flatten
   end
 
   def clean data

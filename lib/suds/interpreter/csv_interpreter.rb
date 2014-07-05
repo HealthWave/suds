@@ -22,7 +22,7 @@ class CSVInterpreter < Interpreter
     raise "Headers have not be set." if @headers.empty?
     raise "Invalid data for current headers." if @headers.size != unit.size
 
-    @data << unit.to_h
+    @data << unit.to_hash
   end
 
 end

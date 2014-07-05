@@ -4,7 +4,8 @@ class RegexCleaner < Cleaner
   attr_accessor :regex_map
   EMAIL_REGEX = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
 
-  def initialize regex_map, destroy_row: false
+  def initialize regex_map, options={}
+    options[:destroy_row] =  !!options[:destroy_row]
     @regex_map = {}
     regex_map.each do |column,regex|
       if Array === column
@@ -16,7 +17,7 @@ class RegexCleaner < Cleaner
       end
     end
     @columns = @regex_map.keys.map(&:to_s)
-    @destroy_row = destroy_row
+    @destroy_row = options[:destroy_row]
   end
 
   def clean data
