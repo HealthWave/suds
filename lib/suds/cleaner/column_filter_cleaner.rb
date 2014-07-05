@@ -18,8 +18,8 @@ class ColumnFilterCleaner < Cleaner
 
     data.each do |row|
       exclude_columns.each do |col|
-        row.delete col if row[col]
-        row.delete col.to_sym if row[col.to_sym]
+        row.delete col
+        row.delete col.to_sym
       end
     end
   end
