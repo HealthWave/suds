@@ -1,5 +1,7 @@
 # suds
 
+[![Code Climate](https://codeclimate.com/github/HealthWave/suds/badges/gpa.svg)](https://codeclimate.com/github/HealthWave/suds) [![Circle CI](https://circleci.com/gh/HealthWave/suds.png?style=badge&circle-token=d76fd83cf3e7c638b8b15559dfeca16cc6251a9f)](https://circleci.com/gh/HealthWave/suds)
+
 Welcome to the suds project. This is very much a work in progress, so please use this at your own risk. I am changing the DSL constantly and rewriting the history.
 
 This project will become stable fairly soon.
